@@ -1,0 +1,15 @@
+{
+  "name": "judtyu",
+  "version": "1.0.0",
+  "description": "All-Active-Information",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "asdf",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^11.2.0",
+    "electron-active-window": "0.0.5"
+  }
+}

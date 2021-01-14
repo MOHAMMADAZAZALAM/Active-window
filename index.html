@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myfun();">click</button>
+    <p id="az" style="border: 2px solid black;"></p>
+    <script>
+        var ar = new Array();
+        var i;
+        const {ipcRenderer}=require('electron');
+        var str="";
+        function myfun(){
+           
+            console.log('all ok');
+            ipcRenderer.send('msg','hello azaz how are you');
+            ipcRenderer.on('back-msg',(event,arg)=>{
+              
+              //var p=arg.json().value;
+            // console.log(arg);
+            //       
+                
+                console.log(ar.length);
+               
+                var det="<br>os : " +arg.os +"<br> AppName: "+arg.windowClass + "<br>Title:-"+arg.windowName+"<br> windowDesktop:"+arg.windowDesktop+"<br> windowType:"+arg.windowType+"<br>windowPid:"+arg.windowPid+"<br>";               
+               str+=det;
+                document.getElementById('az').innerHTML=str;
+            //    for (i=0;i<100;i++){
+            //     document.getElementById('az').innerHTML=ar[i];
+            //     ar[i].push("os : " +arg.os +"<br> windowClass: "+arg.windowClass + "<br> windowName:"+arg.windowName+"<br> windowDesktop:"+arg.windowDesktop+"<br> windowType:"+arg.windowType+"<br>windowPid:"+arg.windowPid); 
+            //    }
+
+            })
+        }
+    </script>
+</body>
+</html>
